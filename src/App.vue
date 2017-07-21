@@ -3,8 +3,9 @@
   <header-top></header-top>
    <side></side>
   <router-view></router-view>
+   <bottom-list></bottom-list>
   <bottom></bottom>
-  <bottom-list></bottom-list>
+ 
     <!--顶部-->
     <!--侧边栏-->
     <!--底部播放列表-->
@@ -33,7 +34,8 @@ body,html
   background:#f0f0f0f0
   user-select:none
   -webkit-tap-highlight-color: transparent
-
+  padding-top:50px;
+  box-sizing:border-box;
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
