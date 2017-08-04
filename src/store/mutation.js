@@ -1,0 +1,2 @@
+export const SHOW_MUSIC_LIST   = 'SHOW_MUSIC_LIST'
+export const CHANGE_CYCLE_TYPE = 'CHANGE_CYCLE_TYPE'

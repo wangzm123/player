@@ -1,14 +1,14 @@
 <template>
     <div class="header">
-        <i class="icon-menu menu "></i>
+        <i class="icon-menu menu " @click="toggleSide"></i>
         <div class="tabmenu">
             <router-link tag="i" to="/mymusic" >
                 <i class="icon-music "></i>
             </router-link>
-            <router-link tag="i" to="/recommend">
+            <router-link tag="i" to="/community">
                 <i class="icon-wangyiyun "></i>
             </router-link>
-            <router-link tag="i" to="/community">
+            <router-link tag="i" to="/recommend">
                 <i class="icon-community"></i>
             </router-link>
         </div>
@@ -22,12 +22,17 @@
             return {
 
             }
+        },
+        methods:{
+            toggleSide () {
+                this.$store.dispatch('toggle_Side')
+            }
         }
     }
 </script>
-<style lang="stylus" rel="stylesheet/stylus"> 
+<style lang="stylus" rel="stylesheet/stylus">
 @import '../commen/global.styl'
-.header 
+.header
     position:fixed
     border:1px solid #f00
     height:50px

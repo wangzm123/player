@@ -10,41 +10,46 @@
                 </li>
             </ul>-->
             <div class="music-info">
-                <img class="music-pic" src="../assets/logo.png" alt="">
+                <img class="music-pic"
+                    :src="getCurrentMusic.img_url ? getCurrentMusic.img_url :''" alt=""
+                    @click="musicDetail()">
 			    <div class="music-detail">
-				    <p class="music-name" >凉凉</p>
-				    <p class="music-singer" >杨宗纬</p>
+				    <p class="music-name" >{{getCurrentMusic.name}}</p>
+				    <p class="music-singer" >{{getCurrentMusic.singer}}</p>
 			    </div>
 		    </div>
-            <div class="palypuse" @click="pause"> <i  :class="state.isplaying? 'icon-pause' : 'icon-play'"></i></div>
-            <div class="palylist"><i class="icon-list-music"></i></div>
+            <div class="palypuse" @click="pauseOrPlay"> <i  :class="isplaying? 'icon-pause' : 'icon-play'"></i></div>
+            <div class="palylist" @click="showPalylist"><i class="icon-list-music"></i></div>
         </div>
 </template>
 <script>
+import {mapGetters, mapState } from 'vuex'
     export default{
         name:'bottom',
         data () {
             return {
                 state: {
-                    isplaying: false,
                     loading: false,
                     currentIndex: 0
-                },
-                audioList: [{
-                    name:'夜空中最亮的星',
-                    singer: '张杰'
-                }, {
-                    name:'演员',
-                    singer: '薛之谦'
-                },{
-                    name:'凉凉',
-                    singer: '杨宗纬'
-                }]
+                }
             }
         },
+        computed:{
+            ...mapGetters({
+                isplaying: 'getPlayingState',
+                getCurrentMusic:'getCurrentMusic'
+            })
+
+        },
         methods: {
-            pause () {
-                this.state.isplaying = !this.state.isplaying
+            pauseOrPlay () {
+               this.$store.dispatch('pause_Play_Music')
+            },
+            showPalylist () {
+               this.$store.dispatch('showlist')
+            },
+            musicDetail () {
+                this.$store.dispatch('show_Music_Detail')
             }
         }
     }
@@ -63,8 +68,9 @@
             .music-info
                 position:relative
                 flex:1 1 auto
-                height:100%	
+                height:100%
                 display:flex
+                align-items: center
                 .music-detail
                     padding: 0px  5px
                     flex:1 1 auto
@@ -93,8 +99,8 @@
                         color:#aaa
                         font-size:10px
             .music-pic
-                width:50px
-                height:50px
+                width:36px
+                height:36px
                 flex:0 0 36px
             .palylist
                font-size:26px
@@ -113,7 +119,4 @@
                     font-size:12px;
                 .icon-pause
                     color:$primarycolor
-
-                
-                    
 </style>

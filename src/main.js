@@ -4,16 +4,15 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App'
 import BottomList from './components/bottomList'
+import Bottom from './components/bottom'
 import router from './router'
 import store from'./store'
-Vue.config.productionTip = false
 Vue.use(Vuex)
-console.log(123,BottomList)
 /* eslint-disable no-new */
-new Vue({
+const app = new Vue({
   el: '#app',
   router,
   store,
   template: '<App/>',
-  components: { App, BottomList }
+  components: { App, BottomList, Bottom }
 })
