@@ -7,6 +7,7 @@ import PersonalRecm from '@/components/Recommend/personalRecom'
 import FoodList from '@/components/Recommend/foodList'
 import Zbqent from '@/components/Recommend/zbqent'
 import Rank from '@/components/Recommend/rank'
+import FoodDetail from '@/components/Recommend/foodDetail'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +40,10 @@ export default new Router({
           },{
             path:'rank',
             component:Rank
+          },{
+            path:'foodDetail',
+            component: FoodDetail,
+            name:FoodDetail
           }]
     },{
        path:'/community',

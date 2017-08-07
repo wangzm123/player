@@ -4,7 +4,7 @@
    <!--顶部-->
    <transition name="fade-loading">
     <div v-if="isLoading" class="loading">
-     <img src="./assets/images/loading.gif">
+     <img src="./assets/images/loadings.gif">
      <div class="loadingmask"></div>
     </div>
     </transition>
@@ -32,10 +32,11 @@ import Individuality from './components/Recommend/personalRecom'
 import Individualities from './components/Recommend/individuality'
 import FoodSide from './components/Recommend/foodSide'
 import FoodList from './components/Recommend/foodList'
+import FoodDetail from './components/Recommend/foodDetail'
 import { mapState } from 'vuex'
 export default {
   name: 'app',
-  components: {HeaderTop, Bottom, Side, BottomList, MusicDetail, Individualities, FoodSide, FoodList},
+  components: {HeaderTop, Bottom, Side, BottomList, MusicDetail, Individualities, FoodSide, FoodList, FoodDetail},
   data () {
     return {
 
@@ -106,15 +107,22 @@ ul
     width:200px
     z-index:120
     position:absolute
+    top: 35%
+    left: 50%
+    opacity:0.8
+    margin-left: -100px
   .loadingmask
     background:#000
+    opacity:0.2
     width:100%
     height:100%
     top:0
     position:absolute
     z-index:110
-.fade-loading-enter-active, .fade-loading-leave-active
+.fade-loading-enter-active,
   transition: all 1s ease
+.fade-loading-leave-active
+  transition: all 0.2s ease
 .fade-loading-enter, .fade-loading-leave-to
   opacity:0
 .fade-loading-enter-to, .fade-loading-leave

@@ -4,13 +4,15 @@ const state = {
   classify: [],
   detail: [],
   list:[],
-  isShowSide: false
+  isShowSide: false,
+  detailOne: {}
 }
 const getters = {
   getClassify: state => state.classify,
   getDetail: state => state.detail,
   isShowSide : state => state.isShowSide,
-  getList: state => state.list
+  getList: state => state.list,
+  getFoodDetail : state => state.detailOne
 }
 const mutations = {
   getClass() {
@@ -33,6 +35,9 @@ const mutations = {
   },
   toggleShowSide (state) {
     state.isShowSide = !state.isShowSide
+  },
+  goDetail (state, id){
+    state.detailOne  = state.list.find(item => item.id === id)
   }
 }
 const actions = {
@@ -49,6 +54,9 @@ const actions = {
   },
   toggle_Show ({ commit }){
     commit('toggleShowSide')
+  },
+  go_Detail ({ commit }, id ) {
+    commit('goDetail', id)
   }
 }
 export　 default {

@@ -29,7 +29,7 @@ export default function (url, options) {
 }
 
 function checkStatus(response) {
-  store.state.isLoading = true
+  store.state.isLoading = false
   if (response.status >= 200 && response.status < 300) {
     return response
   }
@@ -39,6 +39,6 @@ function checkStatus(response) {
 }
 
 function parseJSON(response) {
-  store.state.isLoading = true
+  store.state.isLoading = false
   return response;
 }

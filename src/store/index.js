@@ -14,7 +14,7 @@ const store = new Vuex.Store({
     state: {
         showlist:true,
         cycleType:0,
-        isLoading:true
+        isLoading:false
     },
     getters,
     actions,

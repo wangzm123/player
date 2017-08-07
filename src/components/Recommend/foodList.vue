@@ -1,7 +1,7 @@
 <template>
     <div>
       <ul ref="container" class="foodlist" @touchmove.stop="touchmove($event)">
-			<li v-for="(item,index) in list ">
+			<li v-for="(item,index) in list " @click="foodDetail(item.id)">
 				<img :src="item.pic"/>
 				<div>
 					<p class="food-name">{{item.name}}</p>
@@ -17,6 +17,8 @@
 </template>
 <script>
  import { mapGetters } from 'vuex'
+ import router from '../../router'
+ import foodDetail from './foodDetail'
     export default{
         name:'foodList',
         computed: {
@@ -31,13 +33,21 @@
             let e = event || window.event
              console.log(e)
              console.log(this.$refs.container.scrollTop)
+             console.log(this.$refs.container.currentStyle)
+           },
+           foodDetail (id) {
+             this.$store.dispatch('go_Detail',id)
+             router.push({
+               path:'/recommend/foodDetail'
+             })
            }
          }
 
     }
 </script>
-<style lang="stylus" rel="stylesheet/<css></css>">
+<style lang="stylus" rel="stylesheet/<css></css>" scoped>
 .foodlist
+  height:100%
 	li
 		display:flex
 		justify-content: space-between;
