@@ -1,7 +1,6 @@
 <template>
   <div id="app">
   <audio id="myaudio" ref="audio" @timeupdate="musicTimeUpdate" @error="error"></audio>
-   <!--顶部-->
    <transition name="fade-loading">
     <div v-if="isLoading" class="loading">
      <img src="./assets/images/loadings.gif">
@@ -39,7 +38,6 @@ export default {
   components: {HeaderTop, Bottom, Side, BottomList, MusicDetail, Individualities, FoodSide, FoodList, FoodDetail},
   data () {
     return {
-
     }
   },
   computed: {
@@ -70,10 +68,8 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/css">
 @import "/static/font-icon/style.css"
-
 body,html
   margin:0
   padding:0
@@ -123,8 +119,8 @@ ul
   transition: all 1s ease
 .fade-loading-leave-active
   transition: all 0.2s ease
-.fade-loading-enter, .fade-loading-leave-to
+.fade-loading-enter,.fade-loading-leave-to
   opacity:0
-.fade-loading-enter-to, .fade-loading-leave
+.fade-loading-enter-to,.fade-loading-leave
   opacity:0.2
 </style>

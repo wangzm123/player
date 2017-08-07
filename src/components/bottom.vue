@@ -1,21 +1,12 @@
 <template>
         <div class="bottom-content">
-           <!-- <ul>
-                <li>
-                    <img src="../assets/logo.png"/>
-                    <div>
-                        <p>标题</p>
-                        <p>介绍</p>
-                    </div>
-                </li>
-            </ul>-->
             <div class="music-info">
                 <img class="music-pic"
-                    :src="getCurrentMusic.img_url ? getCurrentMusic.img_url :''" alt=""
+                    :src="getCurrentMusic ? getCurrentMusic.img_url :''" alt=""
                     @click="musicDetail()">
 			    <div class="music-detail">
-				    <p class="music-name" >{{getCurrentMusic.name}}</p>
-				    <p class="music-singer" >{{getCurrentMusic.singer}}</p>
+				    <p class="music-name" >{{ getCurrentMusic ? getCurrentMusic.name : ''}}</p>
+				    <p class="music-singer" >{{getCurrentMusic ? getCurrentMusic.singer : ''}}</p>
 			    </div>
 		    </div>
             <div class="palypuse" @click="pauseOrPlay"> <i  :class="isplaying? 'icon-pause' : 'icon-play'"></i></div>

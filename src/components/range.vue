@@ -57,18 +57,17 @@
             changeduration (event) {
                 let e = event || window.event
                 let mouseX = e.pageX
-                let start =  document.body.offsetWidth*0.05 
+                let start =  document.body.offsetWidth*0.05
                 let amen =this.$refs.progress.offsetLeft
                 let total = this.$refs.progress.offsetWidth
                 let percent = (mouseX-amen-start)/total
-                console.log(percent)
                 if(this.type == 'vol'){
                     this.getAudio.volume = this.totalVol*percent
                     this.currentVol = this.totalVol*percent
                 }else{
                     this.$store.dispatch('play_Assign_Time',percent)
                 }
-                
+
             },
             drag (event) {
                 let e = event || window.event

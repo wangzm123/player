@@ -1,7 +1,8 @@
 import musicList from '../../api/music'
 const state= {
     currentIndex: 0,
-    audioelement:'',
+    audioelement:{
+    },
     allMusic:[],
     playing:false,
     currentTime:0,
@@ -53,14 +54,14 @@ const mutations = {
     // if(state.audioelement.error){
     //     state.audioelement.setAttribute('src',state.audioelement.src)
     // }else{
-        
+
     // }
         state.audioelement.setAttribute('src',state.allMusic[state.currentIndex].url)
         state.playing= true
         state.currentTime= 0
         state.audioelement.load()
         state.audioelement.play()
-      
+
     },
     currentTime (state,ele) {
         state.currentTime = Math.ceil(ele.currentTime)
@@ -117,7 +118,7 @@ const getters= {
     getcurrentTime: state => state.currentTime,
     getDuration: state => state.duration,
     getAudio: state => state.audioelement
-} 
+}
 export default {
     state,
     actions,

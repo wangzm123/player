@@ -1,13 +1,13 @@
 <template>
     <transition name="slidup">
     <div v-show="isShow" class="detail-container"  >
-        <div class="backfilter" :style="{background:'url('+(currentMusic.img_url ? currentMusic.img_url : '')+')'}"></div>
+        <div class="backfilter" :style="{background:'url('+(currentMusic ? currentMusic.img_url : '')+')'}"></div>
         <div class="music-container">
             <div class="music-title">
                 <i class="icon-back back" @click="musicDetail"></i>
                 <div class="music-info">
-                    <p class="name">{{currentMusic.name}}</p>
-                    <p class="singer">{{currentMusic.singer}}</p>
+                    <p class="name">{{currentMusic ? currentMusic.name : ''}}</p>
+                    <p class="singer">{{currentMusic ? currentMusic.singer :''}}</p>
                 </div>
                 <i class="icon-share share"></i>
             </div>
@@ -19,10 +19,10 @@
                             :class="getPlayingState ? 'pause': ''">
                         </div>
                     </div>
-                    <div class="cycle-pic " 
+                    <div class="cycle-pic "
                         :class="getPlayingState ? '': 'cycle-pause'">
                         <div class="cd-bg"></div>
-                        <img :src="currentMusic.img_url ? currentMusic.img_url : ''"/>
+                        <img :src="currentMusic ? currentMusic.img_url : ''"/>
                     </div>
                 </div>
                 <div class="song-operate">
@@ -157,7 +157,7 @@
                     .music-info
                         flex:1 1 auto
                         display:flex
-                        flex-direction:column 
+                        flex-direction:column
                         color:#fff
                         p
                             margin:0px
@@ -182,9 +182,9 @@
                     .animat-pic
                         .line
                             width:80%
-                            height:1px 
+                            height:1px
                             background-image:-webkit-linear-gradient(to left, rgba(255,255,255,0),rgba(255,255,255,0.6),rgba(255,255,255,0))
-                            background-image:linear-gradient(to left, rgba(255,255,255,0),rgba(255,255,255,0.6),rgba(255,255,255,0)) 
+                            background-image:linear-gradient(to left, rgba(255,255,255,0),rgba(255,255,255,0.6),rgba(255,255,255,0))
                             margin:0px auto
                         .triger
                             position:absolute
@@ -223,7 +223,7 @@
                                 background-size:cover
                                 width:100%
                                 height:100%
-                                position:absolute;  
+                                position:absolute;
                                 z-index:11
                         .cycle-pic.cycle-pause
                             animation-play-state: paused
@@ -277,7 +277,7 @@
         .slidup-enter
             transform: translateY(100%)
             opacity: 0
-        .slidup-leave-to 
+        .slidup-leave-to
             transform: translateX(100%)
             opacity: 0
         .fade-enter-active, .fade-leave-active
@@ -286,4 +286,4 @@
             opacity:0
 
 
-</style>        
+</style>
