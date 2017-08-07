@@ -19,7 +19,6 @@
   <music-detail></music-detail>
   </div>
 </template>
-
 <script>
 import HeaderTop from './components/header'
 import Bottom from './components/bottom'
@@ -68,59 +67,3 @@ export default {
   }
 }
 </script>
-<style lang="stylus" rel="stylesheet/stylus">
-@import "/static/font-icon/style.css"
-body,html
-  margin:0
-  padding:0
-  box-sizing:border-box
-  background:#f0f0f0f0
-  user-select:none
-  -webkit-tap-highlight-color: transparent
-  box-sizing:border-box;
-  padding-top:0
-body
-  padding-top:50px
-  padding-bottom: 50px
-ul
-  list-style: none;
-  margin: 0;
-  padding: 0;
-#app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  color: #2c3e50
-.loading
-  position:fixed;
-  width:100%
-  height:100%
-  border:1px solid #f00
-  z-index:100
-  top:0
-  box-sizing: border-box
-  img
-    width:200px
-    z-index:120
-    position:absolute
-    top: 35%
-    left: 50%
-    opacity:0.8
-    margin-left: -100px
-  .loadingmask
-    background:#000
-    opacity:0.2
-    width:100%
-    height:100%
-    top:0
-    position:absolute
-    z-index:110
-.fade-loading-enter-active,
-  transition: all 1s ease
-.fade-loading-leave-active
-  transition: all 0.2s ease
-.fade-loading-enter,.fade-loading-leave-to
-  opacity:0
-.fade-loading-enter-to,.fade-loading-leave
-  opacity:0.2
-</style>
