@@ -7,11 +7,11 @@ const winston = require('winston'); // for transports.Console
 const helmet = require('helmet');
 const compression = require('compression');
 // 环境变量
-const env = process.env.NODE_ENV || 'testing';
-const isProd = env === 'testing' ? true : false;
+const env = process.env.NODE_ENV || 'production';
+const isProd = env === 'production' ? true : false;
 //  APP 配置
-const config = isProd ? require('./config.json')
-  : require('./config.json');
+const config = isProd ? require('./config')
+  : require('./config');
 if (config.watcher) {
   require(config.watcher);
 }

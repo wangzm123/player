@@ -35,7 +35,7 @@ module.exports = {
              '^/api': ''
           }
       }
-      
+
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
@@ -43,5 +43,10 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
-  }
+  },
+  api: "http://api.jisuapi.com",
+  careCentralApi: "http://api.jisuapi.com",
+  privilegeApi: "http://api.jisuapi.com:8080",
+  port: 8080,
+  watcher: ""
 }

@@ -1,7 +1,0 @@
-{
-  "api": "http://api.jisuapi.com",
-  "careCentralApi": "http://api.jisuapi.com",
-  "privilegeApi": "http://api.jisuapi.com",
-  "port": 8080,
-  "watcher": ""
-}
