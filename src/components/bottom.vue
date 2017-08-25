@@ -56,6 +56,7 @@ import {mapGetters, mapState } from 'vuex'
             height:50px
             padding:0 5px
             background:#fff
+            z-index:19
             .music-info
                 position:relative
                 flex:1 1 auto

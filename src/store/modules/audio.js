@@ -1,6 +1,7 @@
 import musicList from '../../api/music'
 const state= {
     currentIndex: 0,
+    currentId:110,
     audioelement:{
     },
     allMusic:[],
@@ -73,6 +74,9 @@ const mutations = {
     playAssignTime (state, percent) {
         state.currentTime = state.duration*percent
         state.audioelement.currentTime = state.duration*percent
+    },
+    getAssignedMusic (state,payload) {
+      musicList.getAssignedMusic(payload,list => state.allMusic = list)
     }
 }
 const actions= {
@@ -106,10 +110,14 @@ const actions= {
     },
     play_Assign_Time ({commit},percent) {
         commit('playAssignTime',percent)
+    },
+    get_My_Music ({commit},name) {
+        commit('getAssignedMusic',name)
     }
 }
 const getters= {
     getAllMusic: state => state.allMusic,
+   // getCurrentMusic: state => state.allMusic.filter(item => {return  item.id == state.currentId}),
     getCurrentMusic: state => state.allMusic[state.currentIndex],
     getPlayingState: state => {
         return state.playing

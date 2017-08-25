@@ -10,9 +10,8 @@ import Rank from '@/components/Recommend/rank'
 import FoodDetail from '@/components/Recommend/foodDetail'
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
+const routes = [
+  {
       // 首页
       path: '/',
       redirect: '/mymusic'
@@ -50,5 +49,20 @@ export default new Router({
        name:'Community',
        component:Community
     }
-  ]
+]
+
+const router = new Router({
+  routes: routes,
+  hstory: true
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length ===0) {
+    from.name ? next({ name:from.name }) : next('/');
+  } else {
+    next();
+  }
+})
+
+export default router
+

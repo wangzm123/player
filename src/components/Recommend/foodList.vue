@@ -1,6 +1,6 @@
 <template>
     <div>
-      <ul ref="container" class="foodlist" @touchmove.stop="touchmove($event)">
+        <ul ref="container" class="foodlist" @touchmove.stop="touchmove($event)">
 			<li v-for="(item,index) in list " @click="foodDetail(item.id)">
 				<img :src="item.pic"/>
 				<div>
@@ -19,8 +19,11 @@
  import { mapGetters } from 'vuex'
  import router from '../../router'
  import foodDetail from './foodDetail'
+ import LoadMore from 'vue-loadmore'
+
     export default{
         name:'foodList',
+        components:{LoadMore},
         computed: {
          ...mapGetters({
             classify: 'getClassify',
@@ -42,7 +45,6 @@
              })
            }
          }
-
     }
 </script>
 <style lang="stylus" rel="stylesheet/<css></css>" scoped>

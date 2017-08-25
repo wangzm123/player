@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-  <audio id="myaudio" ref="audio" @timeupdate="musicTimeUpdate" @error="error"></audio>
+  <!-- <audio id="myaudio" ref="audio" @timeupdate="musicTimeUpdate" @error="error"></audio> -->
+  <audio id="myaudio" ref="audio" @timeupdate="musicTimeUpdate"></audio>
    <transition name="fade-loading">
     <div v-if="isLoading" class="loading">
      <img src="./assets/images/loadings.gif">
@@ -31,10 +32,12 @@ import Individualities from './components/Recommend/individuality'
 import FoodSide from './components/Recommend/foodSide'
 import FoodList from './components/Recommend/foodList'
 import FoodDetail from './components/Recommend/foodDetail'
+import MyMusic from './components/Hello'
+import FolderDetail from './components/sideList/FolderDetail'
 import { mapState } from 'vuex'
 export default {
   name: 'app',
-  components: {HeaderTop, Bottom, Side, BottomList, MusicDetail, Individualities, FoodSide, FoodList, FoodDetail},
+  components: {HeaderTop, Bottom, Side, BottomList, MusicDetail, Individualities, FoodSide, FoodList, FoodDetail, MyMusic, FolderDetail},
   data () {
     return {
     }

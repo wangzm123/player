@@ -13,7 +13,7 @@
                     </div>
                     <div class="add">
                         <i class="icon-add"></i>
-                        <span>收藏</span>
+                        <span @click="collection">收藏</span>
                     </div>
                     <div class="delete">
                         <i class="icon-delete"></i>
@@ -44,7 +44,7 @@ import {mapState, mapGetters} from 'vuex'
         name:'bottomList',
         data () {
             return {
-                showlist: this.$store.state.showlist,
+             //   showlist: this.$store.state.showlist,
             }
         },
         methods: {
@@ -57,6 +57,9 @@ import {mapState, mapGetters} from 'vuex'
             play (index) {
                 this.$store.dispatch('play_Music_Index',index)
                 this.$store.dispatch('showlist')
+            },
+            collection () {
+
             }
         },
         computed:{
@@ -65,36 +68,37 @@ import {mapState, mapGetters} from 'vuex'
                cycleType:'cycleType',
                className:'className',
                cycleText:'cycleText',
-               allMusic:'allMusic',
-               getCurrentIndex:'getCurrentIndex'
+               allMusic:'getAllMusic',
+               getCurrentIndex:'getCurrentIndex',
+               showlist: 'getAllMusic'
            })
         },
         mounted() {
-            this.$store.dispatch('getAllMusic')
+          //  this.$store.dispatch('getAllMusic')
         }
     }
 </script>
-<style lang="stylus" rel="stylesheet/style">
+<style lang="stylus" rel="stylesheet/style" scoped>
         @import '../commen/border/index.styl'
         @import '../commen/global.styl'
         .list-enter,.list-leave-to
             transform:translateY(300px)
         .list-enter-active, .list-leave-active
-            transition:transform  0.5s 
+            transition:transform  0.5s
         .masktop-enter, .masktop-leave-to
             transform: translateY(300px)
             opacity: 0
         .masktop-enter-to, .masktop-leave
-            opacity:0.2
-         .masktop-enter-active, .masktop-leave-active
-             transition: all 0.5s 
+            opacity: 0.2
+        .masktop-enter-active, .masktop-leave-active
+            transition: all 0.5s
         .content
             position:fixed
             bottom:0px
             width:100%
             z-index:30
             color:#666
-            .bottom-list 
+            .bottom-list
                 position:fixed
                 height:300px
                 box-sizing: border-box
@@ -134,7 +138,7 @@ import {mapState, mapGetters} from 'vuex'
                         align-items:center
                 .music-list
                     ul
-                        height:250px 
+                        height:250px
                         overflow:scroll
                     li
                         line-height:42px
@@ -153,5 +157,4 @@ import {mapState, mapGetters} from 'vuex'
                 z-index:3
                 bottom:300px
                 opacity:0.2
-               
 </style>
